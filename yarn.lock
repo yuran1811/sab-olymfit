@@ -7125,6 +7125,11 @@ quick-lru@^5.1.1:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
+qwik-sonner@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/qwik-sonner/-/qwik-sonner-1.0.3.tgz#ebbc9b6eb54e14b5d25d006ff87f95553a051bd2"
+  integrity sha512-n3StJm/5ZLgnzPeVJWQvJz2+gKxuov37VcbeeaXwWJA+bUgX4t0miAkOZDjgTGmyzTLST3PsN2fnSWeelVGTuA==
+
 range-parser@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"

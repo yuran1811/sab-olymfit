@@ -1,33 +1,72 @@
-import { component$ } from "@builder.io/qwik";
-import { Select } from "@qwik-ui/headless";
+import { component$, useSignal, type QRL, type Signal } from "@builder.io/qwik";
+import { Combobox, type ResolvedOption } from "@qwik-ui/headless";
 
-export default component$(({ list }: { list: string[] }) => (
-  <Select.Root class="form-select">
-    <Select.Label>Select the sport</Select.Label>
-    <Select.Trigger class="select-trigger">
-      <Select.DisplayValue placeholder="Select an option" />
-    </Select.Trigger>
-    <Select.Popover class="select-popover">
-      <Select.Listbox class="select-listbox">
-        {list.map((item) => (
-          <Select.Item class="select-item" key={item}>
-            <Select.ItemLabel>{item}</Select.ItemLabel>
-            <Select.ItemIndicator>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="currentColor"
-                  d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z"
-                />
-              </svg>
-            </Select.ItemIndicator>
-          </Select.Item>
-        ))}
-      </Select.Listbox>
-    </Select.Popover>
-  </Select.Root>
-));
+import { type SportEnum } from "~/constants";
+import { classnames } from "~/utils";
+
+export default component$(
+  ({
+    list,
+    signalValue,
+    handleSelect$,
+  }: {
+    list: SportEnum[];
+    signalValue: Signal<number>;
+    handleSelect$: QRL<(value: number) => void>;
+  }) => {
+    const isListboxOpen = useSignal(false);
+
+    return (
+      <Combobox.Root
+        bind:isListboxOpen={isListboxOpen}
+        options={list as any}
+        class="space-y-4"
+      >
+        <Combobox.Label class="font-semibold">
+          Sport (click on the item to continue)
+        </Combobox.Label>
+        <Combobox.Control class="relative">
+          <Combobox.Input
+            class="flex w-full flex-1 rounded-md border border-gray-700 bg-gray-800 text-gray-100 focus:ring-inset focus:ring-violet-400 dark:border-gray-300 dark:bg-gray-100 dark:text-gray-800 focus:dark:ring-violet-600 sm:text-sm"
+            placeholder="Select the sport you want to attend"
+            onInput$={() => (isListboxOpen.value = true)}
+            onClick$={() => (isListboxOpen.value = true)}
+          />
+
+          <Combobox.Popover class="mt-2 w-full max-w-xs bg-transparent">
+            <Combobox.Listbox
+              class="rounded-md bg-violet-700 dark:bg-violet-500"
+              optionRenderer$={(option: ResolvedOption, index: number) => {
+                return (
+                  <Combobox.Option
+                    class={classnames(
+                      "group flex cursor-pointer items-center rounded-md p-3 text-gray-50 hover:bg-violet-800 dark:hover:bg-violet-600",
+                      index === signalValue.value &&
+                        "bg-violet-900 dark:bg-violet-700",
+                    )}
+                    key={option.key}
+                    resolved={option}
+                    index={index}
+                    onClick$={(e) => {
+                      e.stopPropagation();
+                      handleSelect$(index);
+                    }}
+                  >
+                    <span
+                      class={classnames(
+                        index !== signalValue.value &&
+                          "transition-all group-hover:ml-3",
+                      )}
+                    >
+                      {option.label}
+                    </span>
+                  </Combobox.Option>
+                );
+              }}
+            />
+          </Combobox.Popover>
+        </Combobox.Control>
+      </Combobox.Root>
+    );
+  },
+);

@@ -1,34 +1,11 @@
 import { Slot, component$ } from "@builder.io/qwik";
-import type { RequestHandler } from "@builder.io/qwik-city";
+import { Toaster } from "qwik-sonner";
 
 import Footer from "~/components/shared/footer";
 import Header from "~/components/shared/header";
 
 import { usePathname } from "~/shared/loaders";
-export { usePathname, useServerTime } from "~/shared/loaders";
-
-export const onGet: RequestHandler = async ({ url, cacheControl }) => {
-  cacheControl({
-    maxAge: 0,
-    sMaxAge: 0,
-    staleWhileRevalidate: 0,
-  });
-
-  if (url.pathname === "/") {
-    cacheControl({
-      public: true,
-      maxAge: 5,
-      staleWhileRevalidate: 60 * 4,
-    });
-    cacheControl(
-      {
-        maxAge: 5,
-        staleWhileRevalidate: 60 * 4,
-      },
-      "CDN-Cache-Control",
-    );
-  }
-};
+export { usePathname } from "~/shared/loaders";
 
 export default component$(() => {
   const pathname = usePathname().value;
@@ -39,6 +16,7 @@ export default component$(() => {
       <main>
         <Slot />
       </main>
+      <Toaster position="bottom-center" expand={false} richColors />
       <Footer />
     </>
   );

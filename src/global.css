@@ -4,7 +4,7 @@
 
 @layer base {
   *::-webkit-scrollbar {
-    @apply h-0 w-0;
+    @apply h-0 w-0 select-none;
   }
 
   html,
@@ -15,9 +15,35 @@
   main {
     @apply min-h-[calc(100vh-200px)] bg-gray-800 text-gray-100 dark:bg-gray-100 dark:text-gray-800;
   }
+
+  input {
+    &[type="number"]::-webkit-inner-spin-button,
+    &[type="number"]::-webkit-outer-spin-button {
+      @apply m-0 appearance-none;
+    }
+  }
 }
 
 @layer components {
+  .style {
+    &-input {
+      @apply flex w-full flex-1 rounded-md border border-gray-700 bg-gray-800 text-gray-100 focus:ring-inset focus:ring-violet-400 dark:border-gray-300 dark:bg-gray-100 dark:text-gray-800 focus:dark:ring-violet-600 sm:text-sm;
+    }
+    &-p {
+      @apply leading-6;
+    }
+    &-btn {
+      @apply w-max rounded-md bg-violet-600 px-4 py-3 font-semibold dark:bg-violet-400;
+    }
+  }
+
+  .form-err {
+    @apply text-red-400 dark:text-red-600;
+  }
+
+  .modal-backdrop::backdrop {
+    @apply cursor-pointer backdrop-blur-sm;
+  }
 }
 
 @layer utilities {

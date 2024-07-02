@@ -46,6 +46,7 @@
     "postcss": "^8.4.31",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.4",
+    "qwik-sonner": "^1.0.3",
     "tailwindcss": "3.3.3",
     "typescript": "5.4.5",
     "undici": "*",
