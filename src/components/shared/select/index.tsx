@@ -27,7 +27,7 @@ export default component$(
         </Combobox.Label>
         <Combobox.Control class="relative">
           <Combobox.Input
-            class="flex w-full flex-1 rounded-md border border-gray-700 bg-gray-800 text-gray-100 focus:ring-inset focus:ring-violet-400 dark:border-gray-300 dark:bg-gray-100 dark:text-gray-800 focus:dark:ring-violet-600 sm:text-sm"
+            class="bg-sab-color-1 focus:ring-sab-color-2 flex w-full flex-1 rounded-md border border-gray-700 text-gray-100 focus:ring-inset dark:border-gray-300 dark:bg-gray-100 dark:text-gray-800 focus:dark:ring-violet-600 sm:text-sm"
             placeholder="Select the sport you want to attend"
             onInput$={() => (isListboxOpen.value = true)}
             onClick$={() => (isListboxOpen.value = true)}

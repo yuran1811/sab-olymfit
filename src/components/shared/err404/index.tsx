@@ -17,7 +17,7 @@ export default component$(() => (
         <Link
           href="/"
           target="_top"
-          class="rounded bg-violet-400 px-8 py-3 font-semibold text-gray-900 dark:bg-violet-600 dark:text-gray-50"
+          class="bg-sab-color-1 dark:bg-sab-color-1 rounded px-8 py-3 font-semibold text-gray-900 dark:text-gray-50"
         >
           Back to homepage
         </Link>

@@ -13,7 +13,7 @@
   }
 
   main {
-    @apply min-h-[calc(100vh-200px)] bg-gray-800 text-gray-100 dark:bg-gray-100 dark:text-gray-800;
+    @apply bg-text-primary min-h-[calc(100vh-88px)];
   }
 
   input {
@@ -25,15 +25,24 @@
 }
 
 @layer components {
+  .bg-text {
+    &-primary {
+      @apply bg-sab-color-1-dark dark:text-sab-color-1 text-gray-100 dark:bg-gray-100;
+    }
+    &-secondary {
+      @apply bg-sab-color-3-dark dark:text-sab-color-3-dark text-gray-100 dark:bg-gray-100;
+    }
+  }
+
   .style {
     &-input {
-      @apply flex w-full flex-1 rounded-md border border-gray-700 bg-gray-800 text-gray-100 focus:ring-inset focus:ring-violet-400 dark:border-gray-300 dark:bg-gray-100 dark:text-gray-800 focus:dark:ring-violet-600 sm:text-sm;
+      @apply bg-text-primary flex w-full flex-1 rounded-md border border-gray-400 focus:ring-inset focus:ring-gray-400 dark:border-gray-300 focus:dark:ring-violet-600 sm:text-sm;
     }
     &-p {
       @apply leading-6;
     }
     &-btn {
-      @apply w-max rounded-md bg-violet-600 px-4 py-3 font-semibold dark:bg-violet-400;
+      @apply bg-sab-color-1 w-max rounded-md px-4 py-3 font-semibold text-gray-100;
     }
   }
 

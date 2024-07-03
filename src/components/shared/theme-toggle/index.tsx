@@ -15,7 +15,7 @@ export default component$(() => {
   return (
     <>
       <button
-        class="text-violet-400 dark:text-violet-600"
+        class="text-sab-color-3 dark:text-sab-color-3-dark"
         onClick$={() => {
           theme.value = theme.value == "dark" ? "light" : "dark";
           document.body.classList.toggle("dark");

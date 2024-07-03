@@ -1,6 +1,8 @@
 import { $, component$, useSignal } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 
+import SabLogo from "../sab-logo";
+
 import { PUBLIC_ROUTES } from "~/constants";
 import { checkPathInclude, classnames } from "~/utils";
 
@@ -32,7 +34,7 @@ export const NavLinkMobile = component$((props: { pathname?: string }) => {
         onClick$={() => (showMenu.value = !showMenu.value)}
       />
       {showMenu.value && (
-        <div class="fixed left-0 right-0 top-[88px] z-50 w-screen bg-gray-800 pb-12 text-gray-100 dark:bg-gray-100 dark:text-gray-800 sm:hidden">
+        <div class="bg-text-primary fixed left-0 right-0 top-[88px] z-50 w-screen pb-12 sm:hidden">
           <ul
             class={classnames(
               "flex flex-col items-center justify-start gap-4 text-xl sm:hidden",
@@ -49,7 +51,7 @@ export const NavLinkMobile = component$((props: { pathname?: string }) => {
                   class={classnames(
                     "dark:border- -mb-1 flex h-12 items-center px-4 font-medium",
                     checkPathInclude(extractedPath, _.path) &&
-                      "text-violet-400 dark:text-violet-600",
+                      "text-sab-color-2 border-sab-color-2 dark:border-sab-color-3-dark dark:text-sab-color-3-dark",
                   )}
                 >
                   {_.name}
@@ -63,11 +65,20 @@ export const NavLinkMobile = component$((props: { pathname?: string }) => {
   );
 });
 
-export default component$((props: { pathname?: string }) => {
+export default component$((props: { pathname?: string; class?: string }) => {
   const extractedPath = props.pathname || "";
 
   return (
-    <ul class={classnames("hidden items-stretch space-x-3 sm:flex")}>
+    <ul class={classnames(props.class || "", "items-stretch space-x-3")}>
+      <li class="flex">
+        <Link
+          href="/"
+          class="dark:border- -mb-1 flex items-center px-4 font-medium"
+        >
+          <SabLogo type="circle" />
+        </Link>
+      </li>
+
       {PUBLIC_ROUTES.map((_) => (
         <li class="flex" key={`${_.path}--${_.name}`}>
           <Link
@@ -75,7 +86,7 @@ export default component$((props: { pathname?: string }) => {
             class={classnames(
               "dark:border- -mb-1 flex items-center border-b-2 px-4 font-medium",
               checkPathInclude(extractedPath, _.path) &&
-                "border-violet-400 text-violet-400 dark:border-violet-600 dark:text-violet-600",
+                "text-sab-color-2 border-sab-color-2 dark:border-sab-color-3-dark dark:text-sab-color-3-dark",
             )}
           >
             {_.name}

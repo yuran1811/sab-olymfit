@@ -1,8 +1,7 @@
 import { Slot, component$ } from "@builder.io/qwik";
-import { RequestHandler } from "@builder.io/qwik-city";
+import { type RequestHandler } from "@builder.io/qwik-city";
 import { Toaster } from "qwik-sonner";
 
-import Footer from "~/components/shared/footer";
 import Header from "~/components/shared/header";
 
 import { usePathname } from "~/shared/loaders";
@@ -42,7 +41,7 @@ export default component$(() => {
         <Slot />
       </main>
       <Toaster position="bottom-center" expand={false} richColors />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 });
