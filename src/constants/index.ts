@@ -3,7 +3,7 @@ export const APP_NAME = "SAB Olymfit";
 export const PUBLIC_ROUTES = [
   {
     path: "/payment/",
-    name: "Payment",
+    name: "Thanh toán",
   },
 ] as const;
 
