@@ -49,7 +49,7 @@ export default component$(
               formData.selectedSport !== "soccer" && "hidden",
             )}
           >
-            <p class="font-semibold">Tên đội</p>
+            <p class="font-semibold">Tên đội viết tắt (tối đa 3 ký tự)</p>
             <input
               class="style-input"
               name="teamName"
