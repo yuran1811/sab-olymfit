@@ -51,7 +51,7 @@ export const NavLinkMobile = component$((props: { pathname?: string }) => {
                   class={classnames(
                     "dark:border- -mb-1 flex h-12 items-center px-4 font-medium",
                     checkPathInclude(extractedPath, _.path) &&
-                      "text-sab-color-2 border-sab-color-2 dark:border-sab-color-3-dark dark:text-sab-color-3-dark",
+                      "border-sab-color-2 text-sab-color-2 dark:border-sab-color-3-dark dark:text-sab-color-3-dark",
                   )}
                 >
                   {_.name}
@@ -84,9 +84,9 @@ export default component$((props: { pathname?: string; class?: string }) => {
           <Link
             href={_.path}
             class={classnames(
-              "dark:border- -mb-1 flex items-center border-b-2 px-4 font-medium",
+              "dark:border- -mb-1 flex items-center overflow-hidden text-ellipsis border-b-2 px-4 font-medium",
               checkPathInclude(extractedPath, _.path) &&
-                "text-sab-color-2 border-sab-color-2 dark:border-sab-color-3-dark dark:text-sab-color-3-dark",
+                "border-sab-color-2 text-sab-color-2 dark:border-sab-color-3-dark dark:text-sab-color-3-dark",
             )}
           >
             {_.name}

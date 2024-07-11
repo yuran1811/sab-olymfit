@@ -6,7 +6,7 @@ import ThemeToggle from "~/components/shared/theme-toggle";
 export default component$(
   (props: { pathname?: string; minimized?: boolean }) => {
     return (
-      <header class="bg-text-primary sticky left-0 right-0 top-0 p-4">
+      <header class="bg-text-primary sticky left-0 right-0 top-0 z-50 p-4">
         <div class="container mx-auto flex h-14 items-center justify-between">
           <NavLink
             class={props.minimized ? "hidden sm:flex" : "flex"}
