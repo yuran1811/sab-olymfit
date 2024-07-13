@@ -22,13 +22,13 @@ export const SPORT_LIST = [
     price: 20,
     orderPrice: 50,
   },
-  {
-    value: "athletics",
-    label: "Điền kinh",
-    totalPrice: 50,
-    price: 0,
-    orderPrice: 50,
-  },
+  // {
+  //   value: "athletics",
+  //   label: "Điền kinh",
+  //   totalPrice: 50,
+  //   price: 0,
+  //   orderPrice: 50,
+  // },
   {
     value: "chess",
     label: "Cờ vua",

@@ -225,8 +225,8 @@ export default component$(() => {
               </p>
               <span class="style-p">{BANK_ACCOUNT.bank.toUpperCase()}</span>
 
-              <p class="font-semibold text-gray-400 dark:text-gray-600">STK</p>
-              <PWithCopy content={BANK_ACCOUNT.number} />
+              {/* <p class="font-semibold text-gray-400 dark:text-gray-600">STK</p>
+              <PWithCopy content={BANK_ACCOUNT.number} /> */}
 
               <p class="flex-1 font-semibold text-gray-400 dark:text-gray-600">
                 Nội dung chuyển khoản

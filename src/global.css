@@ -9,11 +9,11 @@
 
   html,
   body {
-    @apply bg-text-primary m-0 p-0 leading-4;
+    @apply m-0 p-0 leading-4;
   }
 
   main {
-    @apply min-h-[calc(100vh-88px)];
+    @apply bg-text-primary min-h-[calc(100vh-88px)];
   }
 
   input {
