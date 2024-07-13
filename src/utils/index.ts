@@ -28,8 +28,8 @@ export const generatePaymentInfo = (type: SportEnum, data: any) => {
     ? `OLF SOC ${data.mssv} ${data.teamName}`
     : type === "badminton"
       ? `OLF BAD ${data.mssv}${data.extraMember ? " " + data.mssv2 : ""}`
-      : type === "athletics"
-        ? `OLF RUN ${data.mssv}`
+      // : type === "athletics"
+      //   ? `OLF RUN ${data.mssv}`
         : type === "chess"
           ? `OLF CHESS ${data.mssv}`
           : "";
