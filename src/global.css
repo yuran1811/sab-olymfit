@@ -13,7 +13,7 @@
   }
 
   main {
-    @apply bg-text-primary min-h-[calc(100vh-88px)];
+    @apply bg-text-primary min-h-[calc(100vh-88px)] overflow-y-auto;
   }
 
   input {
